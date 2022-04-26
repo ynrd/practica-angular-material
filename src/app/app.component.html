@@ -1,0 +1,122 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input
+        matInput
+        name="persona.nombre"
+        [(ngModel)]="persona.nombre"
+        placeholder="Introduce un nombre"
+      />
+      <mat-hint
+        >Minimo 3 caracteres. {{ persona.nombre.length || 3 }}/20</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Apellidos</mat-label>
+      <input
+        matInput
+        name="persona.apellidos"
+        [(ngModel)]="persona.apellidos"
+        placeholder="Introduce apellidos"
+      />
+      <mat-hint
+        >Minimo 3 caracteres. {{ persona.apellidos.length || 3 }}/35</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Edad</mat-label>
+      <input
+        matInput
+        name="persona.edad"
+        [(ngModel)]="persona.edad"
+        placeholder="Introduce edad"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>DNI</mat-label>
+      <input
+        matInput
+        name="persona.dni"
+        [(ngModel)]="persona.dni"
+        placeholder="Introduce DNI"
+      />
+      <mat-hint
+        >Deben ser 9 caracteres. {{ persona.dni.length || 0 }}/9</mat-hint
+      >
+      <!-- Aqui el usuario comprueba la longitud pero no la limita a ese num de caracteres -->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Cumpleaños</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        placeholder="Selecciona Fecha de Cumpleaños"
+        name="persona.cumpleanos"
+        [(ngModel)]="persona.cumpleanos"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Color Favorito</mat-label>
+      <input
+        matInput
+        name="persona.colorFavorito"
+        [(ngModel)]="persona.colorFavorito"
+        placeholder="Introduce Color Favorito"
+      />
+      <mat-hint
+        >Minimo 3 caracteres.
+        {{ persona.colorFavorito.length || 3 }}/15</mat-hint
+      >
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Sexo</mat-label>
+      <mat-select placeholder="Selecciona una opción">
+        <mat-option value="Mujer">Mujer</mat-option>
+        <mat-option value="Hombre">Hombre</mat-option>
+        <mat-option value="Otro">Otro</mat-option>
+        <mat-option value="NoEspecificado">No especificado</mat-option>
+      </mat-select>
+      <mat-hint align="end"
+        >Puedes ver las opciones desplegando la fecha
+      </mat-hint>
+    </mat-form-field>
+  </form>
+  <div class="button-row">
+    <button mat-raised-button color="primary" (click)="onAddPerson()">
+      Guardar
+    </button>
+  </div>
+  <div class="people-section">
+    <h1>Personas añadidas</h1>
+    <div class="people">
+    <mat-card  *ngFor="let persona of personas" class="person-card">
+      <mat-card-title>{{persona.nombre}}</mat-card-title>
+      <mat-card-subtitle>{{persona.apellidos}}</mat-card-subtitle>
+      <mat-card-content>
+        <ul>
+          <li>Edad: {{persona.edad}}</li>
+          <li>DNI: {{persona.dni}}</li>
+          <li>Cumpleaño: {{persona.cumpleanos}}</li>
+          <li>Color: {{persona.colorFavorito}}</li>
+          <li>Sexo: {{persona.sexo}}</li>
+        </ul>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Editar</button>
+        <button mat-button>Borrar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  </div>
+</div>
+

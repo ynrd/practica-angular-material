@@ -1,0 +1,29 @@
+.container {
+  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.example-form {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.button-row {
+  margin-top: 5%;
+  width: 95%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.people-section{
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+}
+
+.people {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
